@@ -10,19 +10,20 @@ List<dynamic> tempList = [];
 class APIService {
   // Base API request to get response
   Future<void> fetchData(String search) async {
-    print("inside fetchData of API Service");
-    print("search value: " + search);
+    print("Search value: " + search);
     moviesFetch.clear();
-    final response = await http
-        .get(Uri.parse('http://localhost:8080/api/movie?name=$search'));
+    final response = await http.get(
+        Uri.parse('http://locaohost:8080/api/movie?name=$search'),
+        headers: {"Access-Control_Allow_Origin": "*"});
     if (response.statusCode == 200) {
       tempList = json
           .decode(response.body)['movie']
           .map((data) => moviesFetch.add(Movie.fromJson(data)))
           .toList();
+    } else {
+      print("Error: cannot fetch data from backend");
     }
-    print("length of list after fetch ${moviesFetch.length}");
-    print(moviesFetch.toString());
+    print("Length of list after fetch ${moviesFetch.length}");
   }
 
   List<Movie> getMovieList() {
