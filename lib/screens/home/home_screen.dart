@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:vmovie_app/constants.dart';
 import 'package:vmovie_app/screens/home/components/body.dart';
 import 'package:vmovie_app/models/API_Service.dart';
-import 'package:vmovie_app/screens/home/components/movie_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -44,11 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
     (context as Element).visitChildren(rebuild);
   }
 
-//TODO: Change widget building strategy
   void updateMovie(String search) async {
     await apiFetch.fetchData(search);
-    print("Updating Movie");
-    print(moviesFetch[0].title);
     rebuildAllChildren(context);
   }
 
