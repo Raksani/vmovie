@@ -13,7 +13,7 @@ class APIService {
     print("Search value: " + search);
     moviesFetch.clear();
     final response = await http.get(
-        Uri.parse('http://locaohost:8080/api/movie?name=$search'),
+        Uri.parse('http://localhost:8080/api/movie?name=$search'),
         headers: {"Access-Control_Allow_Origin": "*"});
     if (response.statusCode == 200) {
       tempList = json
