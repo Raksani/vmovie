@@ -4,7 +4,6 @@ String plotText =
     "When Thor's evil brother, Loki (Tom Hiddleston), gains access to the unlimited power of the energy cube called the Tesseract, Nick Fury (Samuel L. Jackson), director of S.H.I.E.L.D., initiates a superhero recruitment effort to defeat the unprecedented threat to Earth.";
 
 class Movie {
-  List<String> genra;
   String id,
       year,
       imdbRating,
@@ -29,7 +28,6 @@ class Movie {
     required this.imdbRating,
     required this.ratingCount,
     required this.rating,
-    required this.genra,
     required this.plot,
     required this.casts,
   });
@@ -48,7 +46,6 @@ class Movie {
       imdbRating: json['rating'],
       rating: json['rating'],
       ratingCount: json['ratingCount'],
-      genra: ["Action", "Drama"],
       plot: json['plot'],
       title: json['title'],
       poster: json['poster'],
@@ -84,7 +81,6 @@ class Casts {
 //     rating: "7.3",
 //     imdbRating: "76",
 //     ratingCount: "150,000",
-//     genra: ["Action", "Drama"],
 //     plot: plotText,
 //     casts: [
 //       {
@@ -119,7 +115,6 @@ class Casts {
   //   backdrop: "assets/images/backdrop_2.jpg",
   //   rating: "8.2",
   //   imdbRating: "76",
-  //   genra: ["Action", "Biography", "Drama"],
   //   plot: plotText,
   //   cast: [
   //     {
@@ -154,7 +149,6 @@ class Casts {
   //   backdrop: "assets/images/backdrop_3.jpg",
   //   rating: "7.6",
   //   imdbRating: "79",
-  //   genra: ["Action", "Drama"],
   //   plot: plotText,
   //   cast: [
   //     {
