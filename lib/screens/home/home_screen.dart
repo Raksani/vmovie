@@ -34,6 +34,20 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void rebuildAllChildren(BuildContext context) {
+    void rebuild(Element el) {
+      el.markNeedsBuild();
+      el.visitChildren(rebuild);
+    }
+
+    (context as Element).visitChildren(rebuild);
+  }
+
+  void updateMovie(String search) async {
+    await apiFetch.fetchData(search);
+    rebuildAllChildren(context);
+  }
+
   AppBar buildAppBar() {
     return AppBar(
       toolbarHeight: 80,
@@ -57,8 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: const Icon(Icons.search,
                           color: Colors.black, size: 30),
                       onPressed: () {
-                        print(myController.text);
-                        apiFetch.fetchData(myController.text);
+                        updateMovie(myController.text);
                       },
                     ),
                     title: Row(
@@ -67,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: TextField(
                             controller: myController,
                             decoration: const InputDecoration(
-                              hintText: 'type in journal name...',
+                              hintText: 'Movie name',
                               hintStyle: TextStyle(
                                 color: Colors.black,
                                 fontSize: 18,

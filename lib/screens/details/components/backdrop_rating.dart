@@ -37,7 +37,7 @@ class BackdropAndRating extends StatelessWidget {
             bottom: 0,
             right: 0,
             child: Container(
-              // it will cover 60% of total width
+              // cover 60% of total width
               width: size.width * 0.6,
               height: 100,
               decoration: BoxDecoration(
