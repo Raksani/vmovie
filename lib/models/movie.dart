@@ -1,9 +1,11 @@
 export 'package:vmovie_app/main.dart';
+import 'dart:convert';
+
+import 'package:vmovie_app/models/casts.dart';
 
 class Movie {
   String id,
       year,
-      imdbRating,
       rating,
       ratingCount,
       plot,
@@ -12,7 +14,7 @@ class Movie {
       backdrop,
       movieRatings,
       duration;
-  List<Casts> casts;
+  List<Casts> casts = [];
 
   Movie({
     required this.poster,
@@ -22,12 +24,31 @@ class Movie {
     required this.year,
     required this.movieRatings,
     required this.duration,
-    required this.imdbRating,
     required this.ratingCount,
     required this.rating,
     required this.plot,
     required this.casts,
   });
+
+  Map<String, Object?> toMap() {
+    // String casts = this.casts.map((e) => e.toString()).toList().toString();
+    String ret = "";
+    ret += casts.toString();
+
+    return {
+      'id': id,
+      'year': year,
+      'rating': rating,
+      'ratingCount': ratingCount,
+      'plot': plot,
+      'title': title,
+      'poster': poster,
+      'backdrop': backdrop,
+      'movieRatings': movieRatings,
+      'duration': duration,
+      'casts': ret,
+    };
+  }
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     List<Casts> listC = <Casts>[];
@@ -39,7 +60,6 @@ class Movie {
     return Movie(
       id: json['id'],
       year: json['year'],
-      imdbRating: json['rating'],
       rating: json['rating'],
       ratingCount: json['ratingCount'],
       plot: json['plot'],
@@ -51,15 +71,24 @@ class Movie {
       casts: listC,
     );
   }
-}
 
-class Casts {
-  late String originalName, movieName;
+  factory Movie.fromSqlite(Map<String, dynamic> map) {
+    List<Casts> listC = <Casts>[];
 
-  Casts({required this.originalName, required this.movieName});
+    jsonDecode(map['casts']).forEach((v) => listC.add(Casts.fromJson(v)));
 
-  Casts.fromJson(Map<String, dynamic> json) {
-    originalName = json['originalName'];
-    movieName = json['movieName'];
+    return Movie(
+      id: map['id'],
+      year: map['year'],
+      rating: map['rating'],
+      ratingCount: map['ratingCount'],
+      plot: map['plot'],
+      title: map['title'],
+      poster: map['poster'],
+      backdrop: map['poster'],
+      movieRatings: "PG-13",
+      duration: map['duration'],
+      casts: listC,
+    );
   }
 }
