@@ -9,4 +9,4 @@ CREATE TABLE movies(
     backdrop TEXT NOT NULL,
     movieRatings TEXT NOT NULL,
     duration TEXT NOT NULL,
-    casts ARRAY NOT NULL)
+    casts TEXT NOT NULL)
