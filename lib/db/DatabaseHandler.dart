@@ -9,7 +9,7 @@ class DatabaseHandler {
   Future<Database> initializeDB() async {
     String path = await getDatabasesPath();
     return openDatabase(
-      join(path, 'example6.db'),
+      join(path, 'movie.db'),
       onCreate: (database, version) async {
         await database.execute("DROP TABLE IF EXISTS movie");
         await database.execute(
@@ -36,7 +36,6 @@ class DatabaseHandler {
   Future retrieveUsers() async {
     final Database db = await initializeDB();
     final List<Map<String, Object?>> queryResult = await db.query('movie');
-
     for (Map<String, Object?> result in queryResult) {
       moviesFetch.add(Movie.fromSqlite(result));
     }

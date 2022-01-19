@@ -1,57 +1,83 @@
 import 'dart:convert';
 
+const String mock0 = """{
+      "id": "tt1634106",
+      "title": "Bloodshot",
+      "year": "2020",
+      "duration": "109 minutes",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjA5YjA2YjUtMGRlNi00ZTU4LThhZmMtNDc0OTg4ZWExZjI3XkEyXkFqcGdeQXVyNjUyNjI3NzU@._V1_.jpg",
+      "rating": "5.7",
+      "ratingCount": "73598",
+      "plot": "Ray Garrison, a slain soldier, is re-animated with superpowers.",
+      "cast": [
+        {
+          "originalName": "Vin Diesel",
+          "movieName": "Bloodshot"
+        },
+        {
+          "originalName": "Eiza González",
+          "movieName": "KT"
+        },
+        {
+          "originalName": "Sam Heughan",
+          "movieName": "Jimmy Dalton"
+        }
+      ]
+    }
+    """;
+
 const String mock1 = """{
-      "id": "tt1258197",
-      "title": "Exam",
-      "year": "2009",
-      "duration": "101 minutes",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNDg2NzM2NzIwNF5BMl5BanBnXkFtZTcwODE2ODc1Mg@@._V1_.jpg",
-      "rating": "6.8",
-      "ratingCount": "111847",
-      "plot": "Eight candidates for a highly desirable corporate job are locked together in an exam room and given a final test with just one seemingly simple question. However, it doesn't take long for confusion to ensue and tensions to unravel.",
-       "cast": [
+      "id": "tt1950186",
+      "title": "Ford v Ferrari",
+      "year": "2019",
+      "duration": "152 minutes",
+      "poster": "https://m.media-amazon.com/images/M/MV5BM2UwMDVmMDItM2I2Yi00NGZmLTk4ZTUtY2JjNTQ3OGQ5ZjM2XkEyXkFqcGdeQXVyMTA1OTYzOTUx._V1_.jpg",
+      "rating": "8.1",
+      "ratingCount": "351443",
+      "plot": "American car designer Carroll Shelby and driver Ken Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order to defeat Ferrari at the 24 Hours of Le Mans in 1966.",
+      "cast": [
         {
-          "originalName": "Adar Beck",
-          "movieName": "Dark"
+          "originalName": "Matt Damon",
+          "movieName": "Carroll Shelby"
         },
         {
-          "originalName": "Gemma Chan",
-          "movieName": "Chinese Girl"
+          "originalName": "Christian Bale",
+          "movieName": "Ken Miles"
         },
         {
-          "originalName": "Nathalie Cox",
-          "movieName": "Blonde"
+          "originalName": "Jon Bernthal",
+          "movieName": "Lee Iacocca"
         }
       ]
     }
     """;
 
 const String mock2 = """
-  {
-      "id": "tt0278731",
-      "title": "Spider",
-      "year": "2002",
-      "duration": "98 minutes",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMmY4OGRmNWMtNmIyNS00YWQ5LWJmMGUtMDI3MWRlMmQ0ZDQzL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
-      "rating": "6.8",
-      "ratingCount": "38239",
-      "plot": "A mentally disturbed man takes residence in a halfway house. His mind gradually slips back into the realm created by his illness, where he replays a key part of his childhood.",
+   {
+      "id": "tt7146812",
+      "title": "Onward",
+      "year": "2020",
+      "duration": "102 minutes",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTZlYzk3NzQtMmViYS00YWZmLTk5ZTEtNWE0NGVjM2MzYWU1XkEyXkFqcGdeQXVyNDg4NjY5OTQ@._V1_.jpg",
+      "rating": "7.4",
+      "ratingCount": "133759",
+      "plot": "Two elven brothers embark on a quest to bring their father back for one day.",
       "cast": [
         {
-          "originalName": "Ralph Fiennes",
-          "movieName": "Spider"
+          "originalName": "Tom Holland",
+          "movieName": "Ian Lightfoot"
         },
         {
-          "originalName": "Miranda Richardson",
-          "movieName": "Yvonne"
+          "originalName": "Chris Pratt",
+          "movieName": "Barley Lightfoot"
         },
         {
-          "originalName": "Gabriel Byrne",
-          "movieName": "Bill Cleg"
+          "originalName": "Julia Louis-Dreyfus",
+          "movieName": "Laurel Lightfoot"
         }
       ]
     }
-    """;
+""";
 
 const String mock3 = """
 {
@@ -81,5 +107,10 @@ const String mock3 = """
 """;
 
 List<Map<String, dynamic>> getMockMovie() {
-  return [jsonDecode(mock1), jsonDecode(mock2), jsonDecode(mock3)];
+  return [
+    jsonDecode(mock0),
+    jsonDecode(mock1),
+    jsonDecode(mock2),
+    jsonDecode(mock3)
+  ];
 }

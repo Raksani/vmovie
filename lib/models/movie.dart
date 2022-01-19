@@ -31,10 +31,6 @@ class Movie {
   });
 
   Map<String, Object?> toMap() {
-    // String casts = this.casts.map((e) => e.toString()).toList().toString();
-    String ret = "";
-    ret += casts.toString();
-
     return {
       'id': id,
       'year': year,
@@ -46,7 +42,7 @@ class Movie {
       'backdrop': backdrop,
       'movieRatings': movieRatings,
       'duration': duration,
-      'casts': ret,
+      'casts': casts.toString(),
     };
   }
 
