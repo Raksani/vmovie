@@ -94,7 +94,7 @@ class BackdropAndRating extends StatelessWidget {
                             borderRadius: BorderRadius.circular(2),
                           ),
                           child: Text(
-                            movie.imdbRating,
+                            movie.rating,
                             style: const TextStyle(
                               fontSize: 20,
                               color: Colors.black,

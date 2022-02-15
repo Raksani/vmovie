@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:vmovie_app/constants.dart';
+import 'package:vmovie_app/db/DatabaseHandler.dart';
+import 'package:vmovie_app/db/tmpMovie.dart';
+import 'package:vmovie_app/models/movie.dart';
 import 'package:vmovie_app/screens/home/components/body.dart';
 import 'package:vmovie_app/models/API_Service.dart';
 
@@ -10,6 +15,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late DatabaseHandler handler;
+
+  @override
+  void initState() {
+    super.initState();
+    this.handler = DatabaseHandler();
+    this.handler.initializeDB().whenComplete(() async {
+      print("DB Initialized");
+      List<Map<String, dynamic>> userMap = getMockMovie();
+
+      List<Movie> listOfUsers = userMap.map((e) => Movie.fromJson(e)).toList();
+      await this.handler.insertUser(listOfUsers);
+      await this.handler.retrieveUsers();
+      rebuildAllChildren(context);
+      setState(() {});
+    });
+  }
+
   Widget customSearchBar = const Text('Movie App',
       style: TextStyle(color: Colors.black, fontSize: 25));
   Icon customSearchIcon =
