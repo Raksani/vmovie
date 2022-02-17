@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vmovie_app/models/API_Service.dart';
+import 'package:vmovie_app/models/API_service.dart';
 import 'dart:math' as math;
 
 import '../../../constants.dart';

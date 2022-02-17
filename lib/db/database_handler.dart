@@ -1,8 +1,6 @@
-import 'dart:convert';
-
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:vmovie_app/models/API_Service.dart';
+import 'package:vmovie_app/models/API_service.dart';
 import 'package:vmovie_app/models/movie.dart';
 
 class DatabaseHandler {

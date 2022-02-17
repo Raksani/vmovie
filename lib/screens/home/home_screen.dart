@@ -1,12 +1,10 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:vmovie_app/constants.dart';
-import 'package:vmovie_app/db/DatabaseHandler.dart';
-import 'package:vmovie_app/db/tmpMovie.dart';
+import 'package:vmovie_app/db/database_handler.dart';
+import 'package:vmovie_app/db/tmp_movies.dart';
 import 'package:vmovie_app/models/movie.dart';
 import 'package:vmovie_app/screens/home/components/body.dart';
-import 'package:vmovie_app/models/API_Service.dart';
+import 'package:vmovie_app/models/API_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,14 +18,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    this.handler = DatabaseHandler();
-    this.handler.initializeDB().whenComplete(() async {
+
+    // initiakize sqlite db
+    handler = DatabaseHandler();
+    handler.initializeDB().whenComplete(() async {
+      // checkpoint
       print("DB Initialized");
       List<Map<String, dynamic>> userMap = getMockMovie();
-
       List<Movie> listOfUsers = userMap.map((e) => Movie.fromJson(e)).toList();
-      await this.handler.insertUser(listOfUsers);
-      await this.handler.retrieveUsers();
+      await handler.insertUser(listOfUsers);
+      await handler.retrieveUsers();
+
+      // rebuild
       rebuildAllChildren(context);
       setState(() {});
     });

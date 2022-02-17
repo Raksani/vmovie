@@ -1,6 +1,5 @@
 export 'package:vmovie_app/main.dart';
 import 'dart:convert';
-
 import 'package:vmovie_app/models/casts.dart';
 
 class Movie {
@@ -68,6 +67,7 @@ class Movie {
     );
   }
 
+// from SQLite [local db]
   factory Movie.fromSqlite(Map<String, dynamic> map) {
     List<Casts> listC = <Casts>[];
 

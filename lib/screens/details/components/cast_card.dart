@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vmovie_app/constants.dart';
 import 'package:vmovie_app/models/casts.dart';
-import 'package:vmovie_app/models/movie.dart';
 
 class CastCard extends StatelessWidget {
   final Casts cast;

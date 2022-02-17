@@ -20,6 +20,8 @@ class APIService {
           .decode(response.body)['movie']
           .map((data) => moviesFetch.add(Movie.fromJson(data)))
           .toList();
+          print(tempList.length);
+      
     } else {
       throw Exception("Error: cannot fetch data from backend");
     }

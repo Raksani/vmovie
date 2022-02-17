@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vmovie_app/models/movie.dart';
-
 import '../../../constants.dart';
 
 class BackdropAndRating extends StatelessWidget {
