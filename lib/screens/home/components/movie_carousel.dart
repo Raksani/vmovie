@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vmovie_app/models/API_Service.dart';
+import 'package:vmovie_app/models/API_service.dart';
 import 'dart:math' as math;
 
 import '../../../constants.dart';
@@ -20,7 +20,7 @@ class _MovieCarouselState extends State<MovieCarousel> {
   void initState() {
     super.initState();
     _pageController = PageController(
-      // so that we can have small portion shown on left and right side
+      // small portion on left and right side
       viewportFraction: 0.8,
       // by default our movie poster
       initialPage: initialPage,

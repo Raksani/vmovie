@@ -8,6 +8,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     // it enable scroll on small device
     return SingleChildScrollView(
       child: Column(

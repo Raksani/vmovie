@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vmovie_app/models/movie.dart';
-
 import '../../../constants.dart';
 
 class BackdropAndRating extends StatelessWidget {
@@ -37,7 +36,7 @@ class BackdropAndRating extends StatelessWidget {
             bottom: 0,
             right: 0,
             child: Container(
-              // it will cover 60% of total width
+              // cover 60% of total width
               width: size.width * 0.6,
               height: 100,
               decoration: BoxDecoration(
@@ -94,7 +93,7 @@ class BackdropAndRating extends StatelessWidget {
                             borderRadius: BorderRadius.circular(2),
                           ),
                           child: Text(
-                            movie.imdbRating,
+                            movie.rating,
                             style: const TextStyle(
                               fontSize: 20,
                               color: Colors.black,
